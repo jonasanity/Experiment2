@@ -1,0 +1,36 @@
+#include <iostream>
+#include <string>
+#include <conio.h>
+using namespace std;
+int main()
+{
+	int gallons;
+	cout << "Enter Consumed Gallons: "; cin >> gallons;
+	double WaterDemandCharge = 35,			 
+		   ConsumptionCharge = 1.10, 
+		   TotalCharge = WaterDemandCharge + (ConsumptionCharge * gallons), 
+		   TotalLateCharge = TotalCharge + 20, 
+		   AmountPaid;	
+	cout << "Total Charge: " << TotalCharge << endl;
+	cout << "Enter Amount of Payment: "; cin >> AmountPaid;
+
+	if (AmountPaid<TotalCharge)
+	{
+		cout << "Water bill costs: " << TotalLateCharge << ", additional late charge fee included P20." "\n" "Please pay proper amount: "; cin >> AmountPaid;
+		if (AmountPaid<TotalLateCharge)
+		{
+			cout << "Invalid. Need to pay enough amount." << endl;
+		}
+		else
+		{
+			cout << "Payment accepted. You have a change of " << AmountPaid-TotalLateCharge << "." << endl;
+		}
+	}
+	else
+	{
+		cout << "Payment Accepted. Your water bill costs is " << TotalCharge << " with a change of " << AmountPaid-TotalCharge << "." << endl;
+	}
+	cout << "Thank You";
+	_getch();
+	return 0;
+}
